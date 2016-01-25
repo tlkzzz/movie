@@ -1,0 +1,62 @@
+.container
+  .row
+    .page-header
+      h1 #{title}
+      small 重度科幻迷
+
+
+
+navbar.navbar-default.navbar-fixed-bottom
+    div.container 
+        p.navbar-text.navbar-left 重度科幻迷
+        
+        if user
+             p.navbar-text.navbar-right
+                span 欢迎您: #{user.name}
+                span &nbsp; | &nbsp;
+                a.navbar-link(href="/userout") 登出
+        else
+            p.navbar-text.navbar-right
+                a.navbar-link(href="#",  data-toggle="modal", data-target="#exampleModalDl") 登陆
+                span &nbsp; | &nbsp;
+                a.navbar-link(href="#",  data-toggle="modal", data-target="#exampleModalZc") 注册
+
+
+
+#exampleModalDl.modal.fade
+    .modal-dialog
+        .modal-content
+             form(method="POST",  action="/user/login")
+                .modal-header
+                    h4.modal-title 登陆
+                .modal-body
+                        .form-group
+                            label.control-label(for="recipient-name") 用户名
+                            input#recipient-name.form-control(type="text" name="user[name]")
+                        .form-group
+                            label.control-label(for="recipient-password") 密码
+                            input#recipient-password.form-control(type="text" name="user[password]")
+                .modal-footer
+                    button.btn.btn-default(type="button" data-dismiss="modal") 关闭
+                    button.btn.btn-success(type="submit") 登陆 
+
+
+
+#exampleModalZc.modal.fade
+    .modal-dialog
+        .modal-content
+            form(method="post" action="/user/inser")
+                .modal-header
+                    h4.modal-title 注册
+                .modal-body
+                        .form-group
+                            label.control-label(for="recipient-insername") 用户名
+                            input#recipient-insername.form-control(type="text" name="user[name]")
+                        .form-group
+                            label.control-label(for="recipient-inserpassword") 密码
+                            input#recipient-inserpassword.form-control(type="text" name="user[password]")
+                .modal-footer
+                    button.btn.btn-default(type="button" data-dismiss="modal") 关闭
+                    button.btn.btn-success(type="submit") 注册 
+
+  

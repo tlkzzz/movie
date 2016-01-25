@@ -1,0 +1,12 @@
+doctype
+html
+  head
+    meta(charset="utf-8")
+    title #{title}
+    //- 引入head模块
+    include ./includes/head   
+  body
+    //-引入header模块 
+    include ./includes/header
+    //- 定义一个继承的模块
+    block content
